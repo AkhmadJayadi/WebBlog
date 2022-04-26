@@ -7,12 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
     <title>PT Mateng Sari Makmur | {{ $title }}</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg sticky-top navbar-dark shadow" style="background-color: #cc5151">
-    <div class="container">
+    <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
       PT. Mateng Sari Makmur
@@ -48,10 +49,48 @@
     </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container-afsdf">
         @yield('container')
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
+
+    <footer class="text-white pt-5 pb-5" style="background-color: #cc5151">
+      <div class="container">
+        <div class="row">
+        <div class="col text-center">
+          <h4>PT Mateng Sari Makmur</h4>
+          <h5>Alamat</h5>
+          <div class="row text-start">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ad nihil qui. Saepe aliquam ex blanditiis expedita quos, voluptatem tempora!</p>
+          </div>
+        </div>
+        <div class="col text-center">
+          <h5>Proyek</h5>
+          <div class="row">
+            <ul class="list-group list-group-flush" >
+              <li class="list-group-item text-white" style="background-color: #cc5151"><a>Steel Construction</a></li>
+              <li class="list-group-item text-white" style="background-color: #cc5151"><a>Civil Worus</a></li>
+              <li class="list-group-item text-white" style="background-color: #cc5151"><a>Tanks</a></li>
+              <li class="list-group-item text-white" style="background-color: #cc5151"><a>Screw Conveyor</a></li>
+              <li class="list-group-item text-white" style="background-color: #cc5151"><a>Heavy Equipment Rentals (Excavator)</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col text-center">
+          <h5>Kontak</h5>
+          <div class="row text-start">
+            <div class="col-3">
+              <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="col-1">a;lskdjklasdj</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </footer>
+
+  
+
 </html>
