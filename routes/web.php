@@ -42,3 +42,33 @@ Route::get('/workshop', function () {
         "title" => "Workshop"
     ]);
 });
+
+Route::get('/civil', function () {
+    return view('civil',[
+        "title" => "Proyek"
+    ]);
+});
+
+Route::get('/heavy', function () {
+    return view('heavy',[
+        "title" => "Proyek"
+    ]);
+});
+
+Route::get('/screw', function () {
+    return view('screw',[
+        "title" => "Proyek"
+    ]);
+});
+
+Route::get('/steel', function () {
+    return view('steel',[
+        "title" => "Proyek"
+    ]);
+});
+
+Route::get('/tanks', function () {
+    return view('tanks',[
+        "title" => "Proyek"
+    ]);
+});

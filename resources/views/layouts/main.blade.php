@@ -11,7 +11,7 @@
     <title>PT Mateng Sari Makmur | {{ $title }}</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark shadow" style="background-color: #cc5151">
     <div class="container">
     <a class="navbar-brand" href="/">
       <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
@@ -26,15 +26,15 @@
             <a class="nav-link {{ ($title === "About")?'active':'' }}" aria-current="page" href="/about">About Us</a>
             </li>
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link {{ ($title === "Proyek")?'active':'' }} dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Proyek
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Steel Construction</a></li>
-                <li><a class="dropdown-item" href="#">Civil Worus</a></li>
-                <li><a class="dropdown-item" href="#">Tanks</a></li>
-                <li><a class="dropdown-item" href="#">Screw Conveyor</a></li>
-                <li><a class="dropdown-item" href="#">Heavy Equipment Rentals (Excavator)</a></li>
+                <li><a class="dropdown-item" href="/steel">Steel Construction</a></li>
+                <li><a class="dropdown-item" href="/civil">Civil Worus</a></li>
+                <li><a class="dropdown-item" href="/tanks">Tanks</a></li>
+                <li><a class="dropdown-item" href="/screw">Screw Conveyor</a></li>
+                <li><a class="dropdown-item" href="/heavy">Heavy Equipment Rentals (Excavator)</a></li>
             </ul>
             </li>
             <li class="nav-item">
