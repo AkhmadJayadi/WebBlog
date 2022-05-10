@@ -25,14 +25,11 @@ Route::get('/about', function () {
     ]);
 });
 
-/* Route::get('/contact', function () {
+Route::get('/contact', function () {
     return view('contact', [
         "title" => "Contact"
     ]);
-}); */
-
-Route::get('/contact', 'Contact@showContactForm');
-Route::post('/contact', 'Contact@sendMail');
+});
 
 Route::get('/proyek', function () {
     return view('proyek', [

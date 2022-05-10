@@ -2,9 +2,6 @@
 
 @section('container')
 
-Route::get('/contact', 'Contact@showContactForm');
-Route::post('/contact', 'Contact@sendMail');
-
 <section>
     <div class="container">
         <div class="row">
