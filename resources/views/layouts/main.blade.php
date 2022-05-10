@@ -8,11 +8,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css">
+
 
     <title>PT Mateng Sari Makmur | {{ $title }}</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg sticky-top navbar-dark shadow" style="background-color: #cc5151">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark shadow py-3" style="background-color: #cc5151">
     <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
@@ -53,10 +55,8 @@
         @yield('container')
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
-
     <footer class="text-white pt-5 pb-5" style="background-color: #cc5151">
+      <hr>
       <div class="container">
         <div class="row">
         <div class="col text-center">
@@ -80,16 +80,37 @@
         </div>
         <div class="col text-center">
           <h5>Kontak</h5>
-          <div class="row text-start">
-            <div class="col-3">
+          <div class="row text-end">
+            <div class="col-5">
               <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
             </div>
-            <div class="col-1">a;lskdjklasdj</div>
+            <div class="col-1"><p>072198989xxx</p></div>
+          </div>
+          <div class="row text-end">
+            <div class="col-5">
+              <i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="col-1"><p>08129638xxx</p></div>
+          </div>
+          <div class="row text-end">
+            <div class="col-5">
+              <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="col-1"><p>admin@matengsarimakmur.com</p></div>
+          </div>
+          <div class="row text-end">
+            <div class="col-5">
+              <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="col-1"><p>@MSN.kontraktor</p></div>
           </div>
         </div>
       </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+
 
   
 
