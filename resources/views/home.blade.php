@@ -11,21 +11,21 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img width="2000" height="500" src="https://kucinggaul.com/id_gallery/00011/foto-kucing-lucu-II-02.jpg" class="d-block w-100" alt="...">
+            <img width="2000" height="500" src="images/kontraktor.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>First slide label</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img width="2000" height="500" src="https://cdn.pixabay.com/photo/2020/09/04/10/07/cat-5543572_960_720.jpg" class="d-block w-100" alt="...">
+            <img width="2000" height="500" src="images/kontraktorr.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>Some representative placeholder content for the second slide.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img width="2000" height="500" src="https://media.suara.com/pictures/653x366/2021/03/30/68218-ilustrasi-kucing.jpg" class="d-block w-100" alt="...">
+            <img width="2000" height="500" src="images/kontraktorrr.jpeg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
               <p>Some representative placeholder content for the third slide.</p>
