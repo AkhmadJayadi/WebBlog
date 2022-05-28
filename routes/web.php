@@ -1,6 +1,11 @@
 <?php
 
+use App\Models\Tank;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,30 +50,52 @@ Route::get('/workshop', function () {
 
 Route::get('/civil', function () {
     return view('civil',[
-        "title" => "Proyek"
+        "title" => "civil"
     ]);
 });
 
 Route::get('/heavy', function () {
     return view('heavy',[
-        "title" => "Proyek"
+        "title" => "heavy"
     ]);
 });
 
 Route::get('/screw', function () {
     return view('screw',[
-        "title" => "Proyek"
+        "title" => "screw"
     ]);
 });
 
 Route::get('/steel', function () {
     return view('steel',[
-        "title" => "Proyek"
+        "title" => "steel"
     ]);
 });
 
+
+
 Route::get('/tanks', function () {
     return view('tanks',[
-        "title" => "Proyek"
+        "title" => "tanks",
+        "posts" => Tank::all()
     ]);
 });
+
+//halaman single post
+Route::get('/tanks/{slug}', function($slug){
+    return view('tanks-posts',[
+        "title" => "Single Post",
+        "post" => Tank::find($slug)
+    ]);
+});
+
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+} )->middleware('auth');
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

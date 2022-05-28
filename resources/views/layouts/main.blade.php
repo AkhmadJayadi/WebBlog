@@ -25,6 +25,7 @@
   <body>
 
   <!-- Navigation-->
+  
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
@@ -57,11 +58,38 @@
               <li class="nav-item">
               <a class="nav-link {{ ($title === "Contact")?'active':'' }}" aria-current="page" href="/contact">Contact Us</a>
               </li>
+              
+              @auth
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Welcome back, {{ auth()->user()->name }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/dashboard">My Dashboard</a></li>
+                    <li>
+                      <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit" class="dropdown-item"> Logout</button>
+                      </form>
+                    </li>
+                </ul>
+                </li>
+              @else
+              <li class="nav-item">
+                <a class="nav-link {{ ($title === "login")?'active':'' }}" aria-current="page" href="/login">Login</a>
+              </li>    
+              @endauth
+
+              
+
+
           </ul>
           </div>
       </div>
 </nav>
+
 <!-- Masthead-->
+
 <header class="masthead">
     <div class="container px-4 px-lg-5 h-100">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
