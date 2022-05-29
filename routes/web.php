@@ -4,6 +4,7 @@ use App\Models\Tank;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TankController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 
@@ -74,20 +75,9 @@ Route::get('/steel', function () {
 
 
 
-Route::get('/tanks', function () {
-    return view('tanks',[
-        "title" => "tanks",
-        "posts" => Tank::all()
-    ]);
-});
-
+Route::get('/tanks', [TankController::class, 'index'] );
 //halaman single post
-Route::get('/tanks/{slug}', function($slug){
-    return view('tanks-posts',[
-        "title" => "Single Post",
-        "post" => Tank::find($slug)
-    ]);
-});
+Route::get('/tanks/{slug}', [TankController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
