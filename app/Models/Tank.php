@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tank extends Model
 {
     use HasFactory;
+
+    //protected $fillable = ['title', 'excert', 'body'];
+    protected $guarded = ['id'];
 }
 

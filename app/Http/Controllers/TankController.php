@@ -15,11 +15,11 @@ class TankController extends Controller
         ]);
     }
 
-    public function show($slug)
+    public function show(Tank $slug)
     {
         return view('tanks-posts',[
-            "title" => "Single Post",
-            "post" => Tank::find($slug)
-        ]);
+        "title" => "Single Post",
+        "post" => $slug
+    ]);
     }
 }

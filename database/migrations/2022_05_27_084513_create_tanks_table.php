@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('tanks', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('excert');
             $table->text('body');
             $table->timestamp('published_at')->nullable();
