@@ -4,8 +4,7 @@
 
     <article>
         <h2>{{ $post->title }}</h2>
-        <h5>{{ $post->excert }}</h5>
-        <p>{{ $post->body }}</p>
+        <p>{!! $post->body !!}</p>
     </article>
 
     <a href="/tanks">Back to Tanks</a>
