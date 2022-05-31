@@ -89,6 +89,8 @@ Route::get('/dashboard', function(){
     return view('dashboard.index');
 } )->middleware('auth');
 
+Route::get('/dashboard/tank/checkSlug', [DashboardTankController::class, 'checkSlug'])->middleware('auth');
+
 Route::resource('/dashboard/tank', DashboardTankController::class)->middleware('auth');
 
 //Auth::routes();

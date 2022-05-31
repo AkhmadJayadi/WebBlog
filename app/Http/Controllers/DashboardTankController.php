@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tank;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardTankController extends Controller
 {
@@ -37,7 +38,7 @@ class DashboardTankController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -86,5 +87,13 @@ class DashboardTankController extends Controller
     public function destroy(Tank $tank)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Tank::class, 'slug', $request->title);
+
+        return response()->json(['slug' => $slug]);
+
     }
 }
