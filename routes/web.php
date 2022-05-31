@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TankController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
+//use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardTankController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +88,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 } )->middleware('auth');
+
+Route::resource('/dashboard/tank', DashboardTankController::class)->middleware('auth');
+
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

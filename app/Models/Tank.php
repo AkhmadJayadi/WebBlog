@@ -11,5 +11,10 @@ class Tank extends Model
 
     //protected $fillable = ['title', 'excert', 'body'];
     protected $guarded = ['id'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
 

@@ -1,0 +1,40 @@
+@extends('dashboard.layouts.main')
+
+@section('container')
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">My Tank</h1>
+</div>
+
+<div class="table-responsive">
+  <a href="/dashboard/tank/create" class="btn btn-primary mb-3">Create new post</a>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Header</th>
+          <th scope="col">Header</th>
+          <th scope="col">Header</th>
+          <th scope="col">Header</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+          @foreach ($posts as $post)
+          <tr>
+            <td>{{ $loop->iteration }}</td>
+            <td>{{ $post->title }}</td>
+            <td>{{ $post->slug }}</td>
+            <td>{{ $post->excert }}</td>
+            <td>{{ $post->body }}</td>
+            <td>
+                <a href="/dashboard/tank/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                <a href="#" class="badge bg-warning"><span data-feather="edit"></span></a>
+                <a href="#" class="badge bg-danger"><span data-feather="x-circle"></span></a>
+            </td>
+          </tr>
+          @endforeach
+      </tbody>
+    </table>
+  </div>
+
+@endsection
