@@ -7,7 +7,7 @@
 </div>
 
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/tank">
+    <form method="post" action="/dashboard/tank" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -27,6 +27,13 @@
               {{ $message }}
             </div>
           @enderror
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+            <div class="col-md-6">
+                <input type="file" class="form-control" name="filename[]" required multiple>
+            </div>
           </div>
 
           <div class="mb-3">

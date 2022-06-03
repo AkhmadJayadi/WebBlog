@@ -42,9 +42,27 @@ class DashboardTankController extends Controller
         $validateData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:tanks',
-            'body' => 'required'
+            'body' => 'required',
+            'filename' => 'required',
+            'filename.*' => 'mimes:doc,docx,PDF,pdf,jpg,jpeg,png|max:2000'
         ]);
 
+        $siap = '';
+
+        if($request->hasfile('filename'))
+        {
+           foreach($request->file('filename') as $image)
+           {
+               $name=round(microtime(true) * 1000).'-'.str_replace(' ','-',$image->getClientOriginalName());
+               $siap = $siap . $name . ';';
+               $image->move(public_path().'/images/', $name);  
+               $data[] = $name;  
+           }
+        }
+
+        //$validateData['image'] = json_encode($data);
+        //return $siap;
+        $validateData['image'] = $siap;
         $validateData['user-id'] = auth()->user()->id;
         $validateData['excert'] = Str::limit(strip_tags($request->body), 200);
 
