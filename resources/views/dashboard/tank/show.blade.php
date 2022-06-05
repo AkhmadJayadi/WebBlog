@@ -2,18 +2,22 @@
 
 @section('container')
 <article>
-    <h2>{{ $post->title }}</h2>
+    <h2><p class="text-center">{{ $post->title }}</p></h2>
     <p>{!! $post->body !!}</p>
 
-    <ol>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
         @foreach (explode(';',$post->image) as $row)
-            @if ($loop->last)
-                <li>This is the last iteration.</li>
-            @else
-                <li><img src="{{ asset('images') . '/' . $row }}" class="img-fluid mt-3"></li>
+            @if ($loop->last) @else
+                    <div class="col">
+                      <div class="card-image">
+                        <img src="{{ asset('images') . '/' . $row }}" class="card-img" alt="...">
+                      </div>
+                    </div>
             @endif
         @endforeach
-    </ol>
+    </div>
+
 
 </article>
 
