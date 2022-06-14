@@ -13,6 +13,12 @@
             Tanks
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/steel*') ? 'active' : '' }}" href="/dashboard/steel">
+            <span data-feather="file-text" class="align-text-bottom"></span>
+            Steel
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

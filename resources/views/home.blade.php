@@ -2,6 +2,7 @@
 
 @section('container')
 
+@foreach ($posts as $post)
 <!---Awal XX--->
 <section id="ppp">
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -12,24 +13,24 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img width="2000" height="500" src="images/kontraktor.jpg" class="d-block w-100" alt="...">
+          <img width="2000" height="500" src="{{ asset('images/' . $post->image1) }}" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>{{ $post->labelimage1 }}</h5>
+            <p>{{ $post->ketimage1 }}</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img width="2000" height="500" src="images/kontraktorr.jpg" class="d-block w-100" alt="...">
+          <img width="2000" height="500" src="{{ asset('images/' . $post->image1) }}" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+            <h5>{{ $post->labelimage2 }}</h5>
+            <p>{{ $post->ketimage2 }}</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img width="2000" height="500" src="images/kontraktorrr.jpeg" class="d-block w-100" alt="...">
+          <img width="2000" height="500" src="{{ asset('images/' . $post->image1) }}" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h5>{{ $post->labelimage3 }}</h5>
+            <p>{{ $post->ketimage3 }}</p>
           </div>
         </div>
       </div>
@@ -51,11 +52,11 @@
           <div class="col-lg-8 text-center">
               <h2 class="text-white mt-0">VISI</h2>
               <hr class="divider divider-light" />
-              <p class="text-white-75 mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt officiis sunt officia fugiat tenetur quo saepe. Atque praesentium doloremque delectus exercitationem quae, sed molestias distinctio. Tenetur, magnam. Quas quaerat aspernatur aliquid facilis voluptate est? Doloribus culpa, magni sequi itaque cupiditate optio illum explicabo ipsam voluptate debitis, reiciendis, placeat ipsum dolores.</p>
+              <p class="text-white-75 mb-4">{{ $post->visi }}</p>
 
               <h2 class="text-white mt-0">MISI</h2>
               <hr class="divider divider-light" />
-              <p class="text-white-75 mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt officiis sunt officia fugiat tenetur quo saepe. Atque praesentium doloremque delectus exercitationem quae, sed molestias distinctio. Tenetur, magnam. Quas quaerat aspernatur aliquid facilis voluptate est? Doloribus culpa, magni sequi itaque cupiditate optio illum explicabo ipsam voluptate debitis, reiciendis, placeat ipsum dolores.</p>
+              <p class="text-white-75 mb-4">{{ $post->misi }}</p>
               <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
           </div>
       </div>
@@ -72,39 +73,40 @@
               <div class="mt-5">
                   <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
                   <h3 class="h4 mb-2">Steel</h3>
-                  <p class="text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ex quaerat saepe fugiat nam hic culpa alias veritatis incidunt temporibus!</p>
+                  <p class="text-muted mb-0">{{ $post->OS_steel }}</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                   <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
                   <h3 class="h4 mb-2">Civil</h3>
-                  <p class="text-muted mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laudantium quibusdam non sunt dolore voluptatum eligendi architecto ipsam iure animi?</p>
+                  <p class="text-muted mb-0">{{ $post->OS_civil }}</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                   <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
                   <h3 class="h4 mb-2">Tanks</h3>
-                  <p class="text-muted mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio id vero debitis illum impedit quo quidem dolor facere deleniti? Libero?</p>
+                  <p class="text-muted mb-0">{{ $post->OS_tank }}</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                   <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
                   <h3 class="h4 mb-2">Screw</h3>
-                  <p class="text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sequi voluptatem placeat id sunt ratione expedita eligendi molestiae eveniet alias?</p>
+                  <p class="text-muted mb-0">{{ $post->OS_srew }}</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="mt-5">
                 <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
                 <h3 class="h4 mb-2">Heavy</h3>
-                <p class="text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sequi voluptatem placeat id sunt ratione expedita eligendi molestiae eveniet alias?</p>
+                <p class="text-muted mb-0">{{ $post->OS_heavy }}</p>
             </div>
         </div>
       </div>
   </div>
 </section>
+@endforeach
 
 @endsection

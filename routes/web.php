@@ -5,9 +5,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TankController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HeavyController;
 //use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ScrewController;
+use App\Http\Controllers\SteelController;
+use App\Http\Controllers\CivillController;
 use App\Http\Controllers\DashboardTankController;
+use App\Http\Controllers\DashboardSteelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +25,12 @@ use App\Http\Controllers\DashboardTankController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home"
-    ]);
-});
+// Route::get('/', function () {
+//     return view('home', [
+//         "title" => "Home"
+//     ]);
+// });
+Route::get('/', [HomeController::class, 'index'] );
 
 Route::get('/about', function () {
     return view('about', [
@@ -50,36 +56,45 @@ Route::get('/workshop', function () {
     ]);
 });
 
-Route::get('/civil', function () {
-    return view('civil',[
-        "title" => "civil"
-    ]);
-});
+// Route::get('/civil', function () {
+//     return view('civil',[
+//         "title" => "civil"
+//     ]);
+// });
 
-Route::get('/heavy', function () {
-    return view('heavy',[
-        "title" => "heavy"
-    ]);
-});
+// Route::get('/heavy', function () {
+//     return view('heavy',[
+//         "title" => "heavy"
+//     ]);
+// });
 
-Route::get('/screw', function () {
-    return view('screw',[
-        "title" => "screw"
-    ]);
-});
+// Route::get('/screw', function () {
+//     return view('screw',[
+//         "title" => "screw"
+//     ]);
+// });
 
-Route::get('/steel', function () {
-    return view('steel',[
-        "title" => "steel"
-    ]);
-});
-
-
+// Route::get('/steel', function () {
+//     return view('steel',[
+//         "title" => "steel"
+//     ]);
+// });
 
 Route::get('/tanks', [TankController::class, 'index'] );
-
 //halaman single post
-Route::get('/tanks/{slug:slug}', [TankController::class, 'show']);
+Route::get('/tanks/{tank:slug}', [TankController::class, 'show']);
+
+Route::get('/steel', [SteelController::class, 'index'] );
+Route::get('/steel/{steel:slug}', [SteelController::class, 'show']);
+
+Route::get('/civil', [CivillController::class, 'index'] );
+Route::get('/civil/{civill:slug}', [CivillController::class, 'show']);
+
+Route::get('/screw', [ScrewController::class, 'index'] );
+Route::get('/screw/{screw:slug}', [ScrewController::class, 'show']);
+
+Route::get('/heavy', [HeavyController::class, 'index'] );
+Route::get('/heavy/{heavy:slug}', [HeavyController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -90,9 +105,10 @@ Route::get('/dashboard', function(){
 } )->middleware('auth');
 
 Route::get('/dashboard/tank/checkSlug', [DashboardTankController::class, 'checkSlug'])->middleware('auth');
-
 Route::resource('/dashboard/tank', DashboardTankController::class)->middleware('auth');
 
+Route::get('/dashboard/steel/checkSlug', [DashboardSteelController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/steel', DashboardSteelController::class)->middleware('auth');
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
