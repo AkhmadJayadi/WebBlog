@@ -12,7 +12,10 @@ use App\Http\Controllers\ScrewController;
 use App\Http\Controllers\SteelController;
 use App\Http\Controllers\CivillController;
 use App\Http\Controllers\DashboardTankController;
+use App\Http\Controllers\DashboardHeavyController;
+use App\Http\Controllers\DashboardScrewController;
 use App\Http\Controllers\DashboardSteelController;
+use App\Http\Controllers\DashboardCivillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,6 +112,15 @@ Route::resource('/dashboard/tank', DashboardTankController::class)->middleware('
 
 Route::get('/dashboard/steel/checkSlug', [DashboardSteelController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/steel', DashboardSteelController::class)->middleware('auth');
+
+Route::get('/dashboard/civil/checkSlug', [DashboardCivillController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/civil', DashboardCivillController::class)->middleware('auth');
+
+Route::get('/dashboard/screw/checkSlug', [DashboardScrewController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/screw', DashboardScrewController::class)->middleware('auth');
+
+Route::get('/dashboard/heavy/checkSlug', [DashboardHeavyController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/heavy', DashboardHeavyController::class)->middleware('auth');
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

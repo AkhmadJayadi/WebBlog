@@ -19,6 +19,24 @@
             Steel
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/civil*') ? 'active' : '' }}" href="/dashboard/civil">
+            <span data-feather="file-text" class="align-text-bottom"></span>
+            Civil
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/screw*') ? 'active' : '' }}" href="/dashboard/screw">
+            <span data-feather="file-text" class="align-text-bottom"></span>
+            Screw
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/heavy*') ? 'active' : '' }}" href="/dashboard/heavy">
+            <span data-feather="file-text" class="align-text-bottom"></span>
+            Heavy
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
