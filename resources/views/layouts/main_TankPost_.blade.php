@@ -45,11 +45,11 @@
                   Proyek
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="/steel">Steel Construction</a></li>
-                  <li><a class="dropdown-item" href="/civil">Civil Worus</a></li>
-                  <li><a class="dropdown-item" href="/tanks">Tanks</a></li>
-                  <li><a class="dropdown-item" href="/screw">Screw Conveyor</a></li>
-                  <li><a class="dropdown-item" href="/heavy">Heavy Equipment Rentals (Excavator)</a></li>
+                  <li><a class="dropdown-item" href="/steel#post">Steel Construction</a></li>
+                  <li><a class="dropdown-item" href="/civil#post">Civil Worus</a></li>
+                  <li><a class="dropdown-item" href="/tanks#post">Tanks</a></li>
+                  <li><a class="dropdown-item" href="/screw#post">Screw Conveyor</a></li>
+                  <li><a class="dropdown-item" href="/heavy#post">Heavy Equipment Rentals (Excavator)</a></li>
               </ul>
               </li>
               <li class="nav-item">

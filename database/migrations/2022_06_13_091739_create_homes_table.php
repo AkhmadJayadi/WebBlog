@@ -24,14 +24,14 @@ return new class extends Migration
             $table->string('ketimage1');
             $table->string('ketimage2');
             $table->string('ketimage3');
-            $table->string('tentangkami');
-            $table->string('visi');
-            $table->string('misi');
-            $table->string('OS_steel');
-            $table->string('OS_civil');
-            $table->string('OS_tank');
-            $table->string('OS_srew');
-            $table->string('OS_heavy');
+            $table->text('tentangkami'); //sudah berubah ke tipe data text di databasenya
+            $table->text('visi'); //sudah berubah ke tipe data text di databasenya
+            $table->text('misi'); //sudah berubah ke tipe data text di databasenya
+            $table->text('OS_steel'); //sudah berubah ke tipe data text di databasenya
+            $table->text('OS_civil'); //sudah berubah ke tipe data text di databasenya
+            $table->text('OS_tank'); //sudah berubah ke tipe data text di databasenya
+            $table->text('OS_srew'); //sudah berubah ke tipe data text di databasenya
+            $table->text('OS_heavy'); //sudah berubah ke tipe data text di databasenya
             $table->timestamps();
         });
     }

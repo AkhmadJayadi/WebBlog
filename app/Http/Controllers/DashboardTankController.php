@@ -107,9 +107,12 @@ class DashboardTankController extends Controller
      */
     public function update(Request $request, Tank $tank)
     { //$request = data baru, //$tank = data lama di database
+        $siap = '';
+
         $rules = [
             'title' => 'required|max:255',
-            'body' => 'required'
+            'body' => 'required',
+            'image.*' => 'mimes:doc,docx,PDF,pdf,jpg,jpeg,png|max:2000'
         ];
 
         if($request->slug != $tank->slug){
@@ -117,6 +120,20 @@ class DashboardTankController extends Controller
         }
 
         $validateData = $request->validate($rules);
+
+        //dd($request->hasfile('filename'));
+
+        if($request->hasfile('filename'))
+        {
+           foreach($request->file('filename') as $image)
+           {
+               $name=round(microtime(true) * 1000).'-'.str_replace(' ','-',$image->getClientOriginalName());
+               $siap = $siap . $name . ';';
+               $image->move(public_path().'/images/', $name);  
+               $data[] = $name;  
+           }
+           $validateData['image'] = $siap;
+        }
 
         //$validateData['user-id'] = auth()->user()->id;
         $validateData['excert'] = Str::limit(strip_tags($request->body), 200);

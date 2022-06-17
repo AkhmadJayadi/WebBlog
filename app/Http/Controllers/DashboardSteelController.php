@@ -106,9 +106,12 @@ class DashboardSteelController extends Controller
      */
     public function update(Request $request, Steel $steel)
     {
+        $siap = '';
+
         $rules = [
             'title' => 'required|max:255',
-            'body' => 'required'
+            'body' => 'required',
+            'image.*' => 'mimes:doc,docx,PDF,pdf,jpg,jpeg,png|max:2000'
         ];
 
         if($request->slug != $steel->slug){
@@ -116,6 +119,18 @@ class DashboardSteelController extends Controller
         }
 
         $validateData = $request->validate($rules);
+
+        if($request->hasfile('filename'))
+        {
+           foreach($request->file('filename') as $image)
+           {
+               $name=round(microtime(true) * 1000).'-'.str_replace(' ','-',$image->getClientOriginalName());
+               $siap = $siap . $name . ';';
+               $image->move(public_path().'/images/', $name);  
+               $data[] = $name;  
+           }
+           $validateData['image'] = $siap;
+        }
 
         //$validateData['user-id'] = auth()->user()->id;
         $validateData['excert'] = Str::limit(strip_tags($request->body), 200);

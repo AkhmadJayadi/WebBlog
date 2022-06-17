@@ -21,5 +21,5 @@
 
 </article>
 
-    <a href="/screw#post">Back to Tanks</a>
+    <a href="/screw#post">Back to Screw</a>
 @endsection

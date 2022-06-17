@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
 
-class DashboardCivillController extends Controller
+class DashboardCivilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,7 +41,7 @@ class DashboardCivillController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|max:255',
-            'slug' => 'required|unique:civills',
+            'slug' => 'required|unique:heavies',
             'body' => 'required',
             'filename' => 'required',
             'filename.*' => 'mimes:doc,docx,PDF,pdf,jpg,jpeg,png|max:2000'
@@ -77,11 +77,14 @@ class DashboardCivillController extends Controller
      * @param  \App\Models\Civill  $civill
      * @return \Illuminate\Http\Response
      */
-    public function show(Civill $civill)
+
+    public function show(Civill $civill, $slug)
     {
-        return view('dashboard.civil.show', [
-            'post' => $civill
-        ]);
+        $results = Civill::where('slug', $slug)->get();
+
+         return view('dashboard.civil.show', [
+             'post' => $results
+         ]);
     }
 
     /**
@@ -90,10 +93,12 @@ class DashboardCivillController extends Controller
      * @param  \App\Models\Civill  $civill
      * @return \Illuminate\Http\Response
      */
-    public function edit(Civill $civill)
+    public function edit(Civill $civill, $slug)
     {
+        $results = Civill::where('slug', $slug)->get();
+
         return view('dashboard.civil.edit', [
-            'post' => $civill
+            'post' => $results
         ]);
     }
 
@@ -104,23 +109,40 @@ class DashboardCivillController extends Controller
      * @param  \App\Models\Civill  $civill
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Civill $civill)
+    public function update(Request $request, Civill $civill, $id)
     {
+        $siap = '';
+
         $rules = [
             'title' => 'required|max:255',
-            'body' => 'required'
+            'body' => 'required',
+            'image.*' => 'mimes:doc,docx,PDF,pdf,jpg,jpeg,png|max:2000'
         ];
 
         if($request->slug != $civill->slug){
-            $rules['slug'] = 'required|unique:civils';
+            $rules['slug'] = 'required|unique:heavies';
         }
 
         $validateData = $request->validate($rules);
+        
+        if($request->hasfile('filename'))
+        {
+           foreach($request->file('filename') as $image)
+           {
+               $name=round(microtime(true) * 1000).'-'.str_replace(' ','-',$image->getClientOriginalName());
+               $siap = $siap . $name . ';';
+               $image->move(public_path().'/images/', $name);  
+               $data[] = $name;  
+           }
+           $validateData['image'] = $siap;
+        }
 
         //$validateData['user-id'] = auth()->user()->id;
         $validateData['excert'] = Str::limit(strip_tags($request->body), 200);
 
-        Civill::where('id', $civill->id)
+        //dd($civill->id);
+
+        Civill::where('id', $id)
             ->update($validateData);
 
         return redirect('/dashboard/civil')->with('success', 'New post has been updated!');
@@ -132,9 +154,10 @@ class DashboardCivillController extends Controller
      * @param  \App\Models\Civill  $civill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Civill $civill)
+    public function destroy(Civill $civill, $slug)
     {
-        Civill::destroy($civill->id);
+        $result = Civill::where('slug', $slug)->get(['id']);
+        Civill::destroy($result);
 
         return redirect('/dashboard/civil')->with('success', 'Post has been deleted!');
     }
@@ -142,8 +165,6 @@ class DashboardCivillController extends Controller
     public function checkSlug(Request $request)
     {
         $slug = SlugService::createSlug(Civill::class, 'slug', $request->title);
-
         return response()->json(['slug' => $slug]);
-
     }
 }

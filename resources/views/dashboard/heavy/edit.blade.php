@@ -7,7 +7,7 @@
 </div>
 
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/heavy/{{ $post->slug }}">
+    <form method="post" action="/dashboard/heavy/{{ $post->slug }}" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="mb-3">
@@ -21,14 +21,43 @@
         </div>
 
         <div class="mb-3">
-            <label for="slug" class="form-label  @error('slug') is-invalid @enderror">Slug</label>
-            <input type="text" class="form-control" id="slug" name="slug" readonly required value="{{ old('slug', $post->slug) }}">
-            @error('slug')
-            <div class="invalid-feedback">
-              {{ $message }}
-            </div>
-          @enderror
+          <label for="slug" class="form-label  @error('slug') is-invalid @enderror">Slug</label>
+          <input type="text" class="form-control" id="slug" name="slug" readonly required value="{{ old('slug', $post->slug) }}">
+          @error('slug')
+          <div class="invalid-feedback">
+            {{ $message }}
           </div>
+        @enderror
+        </div>
+
+        <div class="col-md-12 mt-2">
+          <label>Image Lama</label>
+          @if ($post->image)
+            @foreach (explode(';',$post->image) as $row)
+                @if ($loop->last) @else
+                        <div class="col">
+                          <div class="card-image mt-1">
+                            <img src="{{ asset('images') . '/' . $row }}" class="card-img" alt="...">
+                          </div>
+                        </div>
+                @endif
+            @endforeach
+          @endif
+        </div>
+        <div class="form-group row">
+          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+          <input type="file" name="filename[]" multiple class="form-control" id="images">
+            @if ($errors->has('images'))
+              @foreach ($errors->get('images') as $error)
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $error }}</strong>
+              </span>
+              @endforeach
+            @endif
+        </div>
+        <div class="col-md-12 mt-2">
+          <div class="images-preview-div"> </div>
+        </div>
 
           <div class="mb-3">
             <label for="body" class="form-label  @error('body') is-invalid @enderror">Body</label>

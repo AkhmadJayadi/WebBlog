@@ -20,14 +20,14 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img width="2000" height="500" src="{{ asset('images/' . $post->image1) }}" class="d-block w-100" alt="...">
+          <img width="2000" height="500" src="{{ asset('images/' . $post->image2) }}" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>{{ $post->labelimage2 }}</h5>
             <p>{{ $post->ketimage2 }}</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img width="2000" height="500" src="{{ asset('images/' . $post->image1) }}" class="d-block w-100" alt="...">
+          <img width="2000" height="500" src="{{ asset('images/' . $post->image3) }}" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>{{ $post->labelimage3 }}</h5>
             <p>{{ $post->ketimage3 }}</p>

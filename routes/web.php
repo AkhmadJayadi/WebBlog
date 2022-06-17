@@ -11,11 +11,14 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ScrewController;
 use App\Http\Controllers\SteelController;
 use App\Http\Controllers\CivillController;
+use App\Http\Controllers\WorkshopController;
+use App\Http\Controllers\DashboardHomeController;
 use App\Http\Controllers\DashboardTankController;
 use App\Http\Controllers\DashboardHeavyController;
 use App\Http\Controllers\DashboardScrewController;
 use App\Http\Controllers\DashboardSteelController;
-use App\Http\Controllers\DashboardCivillController;
+use App\Http\Controllers\DashboardCivilController;
+use App\Http\Controllers\DashboardWorkshopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,11 +56,13 @@ Route::get('/proyek', function () {
     ]);
 });
 
-Route::get('/workshop', function () {
-    return view('workshop',[
-        "title" => "Workshop"
-    ]);
-});
+Route::get('/workshop', [WorkshopController::class, 'index'] );
+
+// Route::get('/workshop', function () {
+//     return view('workshop',[
+//         "title" => "Workshop"
+//     ]);
+// });
 
 // Route::get('/civil', function () {
 //     return view('civil',[
@@ -113,14 +118,18 @@ Route::resource('/dashboard/tank', DashboardTankController::class)->middleware('
 Route::get('/dashboard/steel/checkSlug', [DashboardSteelController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/steel', DashboardSteelController::class)->middleware('auth');
 
-Route::get('/dashboard/civil/checkSlug', [DashboardCivillController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/civil', DashboardCivillController::class)->middleware('auth');
+Route::get('/dashboard/civil/checkSlug', [DashboardCivilController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/civil', DashboardCivilController::class)->middleware('auth');
 
 Route::get('/dashboard/screw/checkSlug', [DashboardScrewController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/screw', DashboardScrewController::class)->middleware('auth');
 
 Route::get('/dashboard/heavy/checkSlug', [DashboardHeavyController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/heavy', DashboardHeavyController::class)->middleware('auth');
+
+Route::resource('/dashboard/home', DashboardHomeController::class)->middleware('auth');
+
+Route::resource('/dashboard/workshop', DashboardWorkshopController::class)->middleware('auth');
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -21,5 +21,5 @@
 
 </article>
 
-    <a href="/heavy#post">Back to Tanks</a>
+    <a href="/heavy#post">Back to Heavy</a>
 @endsection

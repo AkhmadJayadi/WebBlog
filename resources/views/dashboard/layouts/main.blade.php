@@ -39,5 +39,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="/js/dashboard.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    const title = document.querySelector('#title');
+    const slug = document.querySelector('#slug');
+
+    title.addEventListener('change', function(){
+        fetch('/dashboard/civil/checkSlug?title='+title.value)
+        .then(response => response.json())
+        .then(data => slug.value = data.slug)
+    });
+
+    document.addEventListener('trix-file-accept', function(e){
+        e.preventDefault();
+    })
+
+    $(function() {
+        // Multiple images preview with JavaScript
+        var previewImages = function(input, imgPreviewPlaceholder) {
+            if (input.files) {
+                var filesAmount = input.files.length;
+                    for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img class="col-sm-10 mt-1">')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+                    }
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        };
+
+        $('#images').on('change', function() {
+            previewImages(this, 'div.images-preview-div');
+        });
+    });
+</script>
   </body>
 </html>

@@ -8,6 +8,18 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/home*') ? 'active' : '' }}" href="/dashboard/home">
+            <span data-feather="file-text" class="align-text-bottom"></span>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/workshop*') ? 'active' : '' }}" href="/dashboard/workshop">
+            <span data-feather="file-text" class="align-text-bottom"></span>
+            Workshop
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/tank*') ? 'active' : '' }}" href="/dashboard/tank">
             <span data-feather="file-text" class="align-text-bottom"></span>
             Tanks

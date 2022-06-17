@@ -50,7 +50,7 @@ class CivillController extends Controller
     public function show(Civill $civill)
     {
         //dd($slug);
-        return view('steel-posts',[
+        return view('civil-posts',[
             "title" => "Single Post",
             "post" => $civill
         ]);
