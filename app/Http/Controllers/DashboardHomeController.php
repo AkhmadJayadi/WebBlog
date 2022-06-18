@@ -117,6 +117,10 @@ class DashboardHomeController extends Controller
             $validateData['image3'] = $name;
         }
 
+        //$visii = '<p class="text-white-75 mb-4">' . $request->visi . '</p>';
+        //$validateData['visi'] = $visii;
+        //dd($visii);
+
         Home::where('id', $id)
             ->update($validateData);
 

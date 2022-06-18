@@ -10,7 +10,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{ $post->title }}</h5>
                       <p class="card-text">{{ $post->excert }}</p>
-                      <a href="/steel/{{ $post->slug }}#post" class="btn btn-primary">Read More</a>
+                      <a href="/steel/{{ $post->slug }}#post" class="btn warnaMerah">Read More</a>
                     </div>
                   </div>
                 </div>

@@ -90,26 +90,11 @@
 
 <!-- Masthead-->
 
-<header class="masthead">
-    <div class="container px-4 px-lg-5 h-100">
-        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-            <div class="col-lg-8 align-self-end">
-                <h1 class="text-white font-weight-bold">Tentang Kami</h1>
-                <hr class="divider" />
-            </div>
-            <div class="col-lg-8 align-self-baseline">
-                <p class="text-white-75 mb-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus ea sapiente aspernatur, at vero asperiores est doloremque quis magnam nobis non natus velit eveniet ipsam, eum quos. Ipsa perspiciatis atque fugiat harum ea aliquam illo iure dignissimos dolore laborum officiis maxime, nam modi totam tempora culpa ad.</p>
-                <a class="btn btn-danger btn-xl" href="#about">Find Out More</a> <!--dari primary ke danger-->
-            </div>
-        </div>
-    </div>
-</header>
-
-    <div class="container-afsdf"> <!--afsdf sengaja untuk buat error agar container tidak jalan-->
+    <div class="container-afsdf" style="padding:90px 40px;"> <!--afsdf sengaja untuk buat error agar container tidak jalan-->
         @yield('container')
     </div>
 
-    <footer class="text-white pt-5 pb-5" style="background-color: #dc3545">
+    <footer class="text-white pt-5 pb-5 warnaMerah">
       <hr>
       <div class="container">
         <div class="row">
@@ -124,11 +109,11 @@
           <h5>Proyek</h5>
           <div class="row">
             <ul class="list-group list-group-flush" >
-              <li class="list-group-item text-white" style="background-color: #dc3545"><a>Steel Construction</a></li>
-              <li class="list-group-item text-white" style="background-color: #dc3545"><a>Civil Worus</a></li>
-              <li class="list-group-item text-white" style="background-color: #dc3545"><a>Tanks</a></li>
-              <li class="list-group-item text-white" style="background-color: #dc3545"><a>Screw Conveyor</a></li>
-              <li class="list-group-item text-white" style="background-color: #dc3545"><a>Heavy Equipment Rentals (Excavator)</a></li>
+              <li class="list-group-item text-white warnaMerah"><a>Steel Construction</a></li>
+              <li class="list-group-item text-white warnaMerah"><a>Civil Worus</a></li>
+              <li class="list-group-item text-white warnaMerah"><a>Tanks</a></li>
+              <li class="list-group-item text-white warnaMerah"><a>Screw Conveyor</a></li>
+              <li class="list-group-item text-white warnaMerah"><a>Heavy Equipment Rentals (Excavator)</a></li>
             </ul>
           </div>
         </div>

@@ -1,8 +1,22 @@
-@extends('layouts.main')
+@extends('layouts.mainHome')
 
 @section('container')
 
 @foreach ($posts as $post)
+<header class="masthead">
+  <div class="container px-4 px-lg-5 h-100">
+      <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+          <div class="col-lg-8 align-self-end">
+              <h1 class="text-white font-weight-bold">Tentang Kami</h1>
+              <hr class="divider" />
+          </div>
+          <div class="col-lg-8 align-self-baseline">
+              <p class="text-white-75 mb-5">{!! Str::limit(str_replace(['<div>','</div>'], ' ', $post->tentangkami), 400) !!}</p>
+              <a class="btn warnaMerah btn-xl" href="#about">Find Out More</a> <!--dari primary ke danger-->
+          </div>
+      </div>
+  </div>
+</header>
 <!---Awal XX--->
 <section id="ppp">
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -46,17 +60,18 @@
 </section>
 
 <!---Awal XX--->
-<section class="page-section bg-danger" id="about">
+<section class="page-section warnaMerah" id="about">
   <div class="container px-4 px-lg-5">
       <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-lg-8 text-center">
               <h2 class="text-white mt-0">VISI</h2>
               <hr class="divider divider-light" />
-              <p class="text-white-75 mb-4">{{ $post->visi }}</p>
+              
+              <p class="text-white-75 mb-4">{!! str_replace(['<div>','</div>'], ' ', $post->visi) !!}</p>
 
               <h2 class="text-white mt-0">MISI</h2>
               <hr class="divider divider-light" />
-              <p class="text-white-75 mb-4">{{ $post->misi }}</p>
+              <p class="text-white-75 mb-4">{!! str_replace(['<div>','</div>'], ' ', $post->misi) !!}</p>
               <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
           </div>
       </div>
@@ -73,35 +88,35 @@
               <div class="mt-5">
                   <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
                   <h3 class="h4 mb-2">Steel</h3>
-                  <p class="text-muted mb-0">{{ $post->OS_steel }}</p>
+                  <p class="text-muted mb-0">{!! $post->OS_steel !!}</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                   <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
                   <h3 class="h4 mb-2">Civil</h3>
-                  <p class="text-muted mb-0">{{ $post->OS_civil }}</p>
+                  <p class="text-muted mb-0">{!! $post->OS_civil !!}</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                   <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
                   <h3 class="h4 mb-2">Tanks</h3>
-                  <p class="text-muted mb-0">{{ $post->OS_tank }}</p>
+                  <p class="text-muted mb-0">{!! $post->OS_tank !!}</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                   <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
                   <h3 class="h4 mb-2">Screw</h3>
-                  <p class="text-muted mb-0">{{ $post->OS_srew }}</p>
+                  <p class="text-muted mb-0">{!! $post->OS_srew !!}</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="mt-5">
                 <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
                 <h3 class="h4 mb-2">Heavy</h3>
-                <p class="text-muted mb-0">{{ $post->OS_heavy }}</p>
+                <p class="text-muted mb-0">{!! $post->OS_heavy !!}</p>
             </div>
         </div>
       </div>

@@ -11702,6 +11702,10 @@ body {
     border-radius: 10rem;
 }
 
+.warnaMerah {
+    background-color: #f83232 !important;
+}
+
 hr.divider {
     height: 0.2rem;
     max-width: 3.25rem;

@@ -14,8 +14,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
         if (!navbarCollapsible) {
             return;
         }
-        navbarCollapsible.classList.add("navbar-shrink");
-        navbarCollapsible.classList.add("warnaMerah");
+        if (window.scrollY === 0) {
+            navbarCollapsible.classList.remove("navbar-shrink");
+            navbarCollapsible.classList.remove("warnaMerah");
+        } else {
+            navbarCollapsible.classList.add("navbar-shrink");
+            navbarCollapsible.classList.add("warnaMerah");
+        }
     };
 
     // Shrink the navbar

@@ -12,7 +12,7 @@
     <!-- SimpleLightbox plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
     <!-- Core theme JS-->
-    <script src="scripts.js"></script>
+    <script src="scriptsHome.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
@@ -92,7 +92,7 @@
 
 
 
-    <div class="container-afsdf" style="padding:90px 40px;"> <!--afsdf sengaja untuk buat error agar container tidak jalan-->
+    <div class="container-afsdf"> <!--afsdf sengaja untuk buat error agar container tidak jalan-->
         @yield('container')
     </div>
 

@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TankController;
-use App\Http\Controllers\HeavyController;
+use App\Http\Controllers\AboutController;
 //use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HeavyController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ScrewController;
 use App\Http\Controllers\SteelController;
@@ -14,10 +15,10 @@ use App\Http\Controllers\CivillController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\DashboardHomeController;
 use App\Http\Controllers\DashboardTankController;
+use App\Http\Controllers\DashboardCivilController;
 use App\Http\Controllers\DashboardHeavyController;
 use App\Http\Controllers\DashboardScrewController;
 use App\Http\Controllers\DashboardSteelController;
-use App\Http\Controllers\DashboardCivilController;
 use App\Http\Controllers\DashboardWorkshopController;
 
 /*
@@ -38,11 +39,13 @@ use App\Http\Controllers\DashboardWorkshopController;
 // });
 Route::get('/', [HomeController::class, 'index'] );
 
-Route::get('/about', function () {
-    return view('about', [
-        "title" => "About"
-    ]);
-});
+Route::get('/about', [AboutController::class, 'index'] );
+
+// Route::get('/about', function () {
+//     return view('about', [
+//         "title" => "About"
+//     ]);
+// });
 
 Route::get('/contact', function () {
     return view('contact', [
