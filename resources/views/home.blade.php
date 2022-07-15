@@ -12,7 +12,7 @@
           </div>
           <div class="col-lg-8 align-self-baseline">
               <p class="text-white-75 mb-5">{!! Str::limit(str_replace(['<div>','</div>'], ' ', $post->tentangkami), 400) !!}</p>
-              <a class="btn warnaMerah btn-xl" href="#about">Find Out More</a> <!--dari primary ke danger-->
+              <a class="btn warnaMerah btn-xl" href="#about">Find Out More</a>
           </div>
       </div>
   </div>

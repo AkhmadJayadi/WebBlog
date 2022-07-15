@@ -137,7 +137,7 @@
             <div class="col-5">
               <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
             </div>
-            <div class="col-1"><p>admin@matengsarimakmur.com</p></div>
+            <div class="col-1"><p>adminooooooo@matengsarimakmur.com</p></div>
           </div>
           <div class="row text-end">
             <div class="col-5">
