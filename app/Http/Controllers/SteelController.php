@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Steel;
+use App\Models\footer;
 use App\Http\Requests\StoreSteelRequest;
 use App\Http\Requests\UpdateSteelRequest;
 
@@ -15,10 +16,13 @@ class SteelController extends Controller
      */
     public function index()
     {
-        return view('steel',[
+        $data = [
             "title" => "steel",
-            "posts" => Steel::all()
-        ]);
+            "posts" => Steel::all(),
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('steel', $data);
     }
 
     /**
@@ -51,10 +55,18 @@ class SteelController extends Controller
     public function show(Steel $steel)
     {
         //dd($slug);
-        return view('steel-posts',[
+        // return view('steel-posts',[
+        //     "title" => "Single Post",
+        //     "post" => $steel
+        // ]);
+        
+        $data = [
             "title" => "Single Post",
-            "post" => $steel
-        ]);
+            "post" => $steel,
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('steel-posts', $data);
     }
 
     /**

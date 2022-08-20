@@ -12,12 +12,13 @@
     {{-- Trix editor --}}
     <link rel="stylesheet" type="text/css" href="/css/trix.css">
     <script type="text/javascript" src="/js/trix.js"></script>
+    <script type="text/javascript" src="/js/attachment.js"></script>
 
-    <style>
-      trix-toolbar [data-trix-button-group="file-tools"]{
-        display: none;
-      }
-    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" rel="stylesheet">
 
   </head>
   <body>
@@ -35,11 +36,11 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="/js/dashboard.js"></script>
+<!-- References: https://github.com/fancyapps/fancyBox -->  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
-      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="/js/dashboard.js"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');
@@ -49,10 +50,6 @@
         .then(response => response.json())
         .then(data => slug.value = data.slug)
     });
-
-    document.addEventListener('trix-file-accept', function(e){
-        e.preventDefault();
-    })
 
     $(function() {
         // Multiple images preview with JavaScript

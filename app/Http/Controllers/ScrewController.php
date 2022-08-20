@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Screw;
+use App\Models\footer;
 use Illuminate\Http\Request;
 
 class ScrewController extends Controller
@@ -14,10 +15,13 @@ class ScrewController extends Controller
      */
     public function index()
     {
-        return view('screw',[
-            "title" => "screw",
-            "posts" => Screw::all()
-        ]);
+        $data = [
+            "title" => "Screw",
+            "posts" => Screw::all(),
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('screw', $data);
     }
 
     /**
@@ -49,11 +53,13 @@ class ScrewController extends Controller
      */
     public function show(Screw $screw)
     {
-        //dd($slug);
-        return view('screw-posts',[
+        $data = [
             "title" => "Single Post",
-            "post" => $screw
-        ]);
+            "post" => $screw,
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('screw-posts', $data);
     }
 
     /**

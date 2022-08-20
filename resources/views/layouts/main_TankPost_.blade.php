@@ -46,7 +46,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="/steel#post">Steel Construction</a></li>
-                  <li><a class="dropdown-item" href="/civil#post">Civil Worus</a></li>
+                  <li><a class="dropdown-item" href="/civil#post">Civil Works</a></li>
                   <li><a class="dropdown-item" href="/tanks#post">Tanks</a></li>
                   <li><a class="dropdown-item" href="/screw#post">Screw Conveyor</a></li>
                   <li><a class="dropdown-item" href="/heavy#post">Heavy Equipment Rentals (Excavator)</a></li>
@@ -110,7 +110,7 @@
           <div class="row">
             <ul class="list-group list-group-flush" >
               <li class="list-group-item text-white" style="background-color: #cc5151"><a>Steel Construction</a></li>
-              <li class="list-group-item text-white" style="background-color: #cc5151"><a>Civil Worus</a></li>
+              <li class="list-group-item text-white" style="background-color: #cc5151"><a>Civil Works</a></li>
               <li class="list-group-item text-white" style="background-color: #cc5151"><a>Tanks</a></li>
               <li class="list-group-item text-white" style="background-color: #cc5151"><a>Screw Conveyor</a></li>
               <li class="list-group-item text-white" style="background-color: #cc5151"><a>Heavy Equipment Rentals (Excavator)</a></li>

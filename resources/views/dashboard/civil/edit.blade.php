@@ -62,8 +62,7 @@
 
           <div class="mb-3">
             <label for="body" class="form-label  @error('body') is-invalid @enderror">Body</label>
-            <input id="body" type="hidden" name="body" required value="{{ old('body', $post->body) }}">
-            <trix-editor input="body"></trix-editor>
+            <textarea id="summernote" name="body">{{ old('body', $post->body) }}</textarea>
             @error('body')
             <div class="invalid-feedback">
               {{ $message }}
@@ -74,8 +73,25 @@
         <button type="submit" class="btn btn-primary">Update Post</button>
       </form>
 </div>
-
-
-
 @endforeach
+
+<script>
+    const title = document.querySelector('#title');
+    const slug = document.querySelector('#slug');
+
+    title.addEventListener('change', function(){
+        fetch('/dashboard/steel/checkSlug?title='+title.value)
+        .then(response => response.json())
+        .then(data => slug.value = data.slug)
+    });
+
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+
+    // document.addEventListener('trix-file-accept', function(e){
+    //     e.preventDefault();
+    // })
+</script>
+
 @endsection

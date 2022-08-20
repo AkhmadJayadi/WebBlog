@@ -8,10 +8,12 @@ use App\Http\Controllers\TankController;
 use App\Http\Controllers\AboutController;
 //use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HeavyController;
+use App\Http\Controllers\Contact;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ScrewController;
 use App\Http\Controllers\SteelController;
 use App\Http\Controllers\CivillController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\DashboardHomeController;
 use App\Http\Controllers\DashboardTankController;
@@ -20,6 +22,7 @@ use App\Http\Controllers\DashboardHeavyController;
 use App\Http\Controllers\DashboardScrewController;
 use App\Http\Controllers\DashboardSteelController;
 use App\Http\Controllers\DashboardWorkshopController;
+use App\Http\Controllers\ImageSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +50,18 @@ Route::get('/about', [AboutController::class, 'index'] );
 //     ]);
 // });
 
-Route::get('/contact', function () {
-    return view('contact', [
-        "title" => "Contact"
-    ]);
-});
+// Route::get('/contact', function () {
+//     return view('contact', [
+//         "title" => "Contact"
+//     ]);
+// });
+
+//Route::get('/contact', [Contact::class, 'index'] );
+Route::get('/contact', [Contact::class, 'showContactForm'] );
+Route::post('/contact', [Contact::class, 'sendMail'] );
+//Route::get('/contact', 'Contact@showContactForm');
+//Route::post('/contact', 'Contact@sendMail');
+Route::post('/kirimwa', [Contact::class, 'sendwa']);
 
 Route::get('/proyek', function () {
     return view('proyek', [
@@ -133,6 +143,14 @@ Route::resource('/dashboard/heavy', DashboardHeavyController::class)->middleware
 Route::resource('/dashboard/home', DashboardHomeController::class)->middleware('auth');
 
 Route::resource('/dashboard/workshop', DashboardWorkshopController::class)->middleware('auth');
+
+Route::get('/dashboard/footer/edit', [FooterController::class, 'edit'])->middleware('auth');
+Route::get('/dashboard/footer', [FooterController::class, 'index'])->middleware('auth');
+Route::resource('/dashboard/footer', FooterController::class)->middleware('auth');
+
+Route::get('/dashboard/slider/create', [FooterController::class, 'create'])->middleware('auth');
+Route::get('dashboard/slider/{id}', [ImageSliderController::class, 'edit'])->name('track.progress');
+Route::resource('/dashboard/slider', ImageSliderController::class)->middleware('auth');
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

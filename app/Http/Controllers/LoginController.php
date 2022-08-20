@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\footer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,10 +10,13 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('login.index', [
+        $data = [
             'title' => 'login',
-            'active' => 'login'
-        ]);
+            'active' => 'login',
+            'postFooter' => footer::all()
+        ];
+        //dd($data);
+        return view('login.index', $data);
     }
 
     public function authenticate(Request $request)

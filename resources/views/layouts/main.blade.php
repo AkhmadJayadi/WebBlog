@@ -12,7 +12,7 @@
     <!-- SimpleLightbox plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
     <!-- Core theme JS-->
-    <script src="scripts.js"></script>
+    <script src="scripts1.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
@@ -25,6 +25,7 @@
   <body>
 
   <!-- Navigation-->
+  @foreach ($postFooter as $post)
   
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav">
     <div class="container-fluid">
@@ -46,7 +47,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="/steel#post">Steel Construction</a></li>
-                  <li><a class="dropdown-item" href="/civil#post">Civil Worus</a></li>
+                  <li><a class="dropdown-item" href="/civil#post">Civil Works</a></li>
                   <li><a class="dropdown-item" href="/tanks#post">Tanks</a></li>
                   <li><a class="dropdown-item" href="/screw#post">Screw Conveyor</a></li>
                   <li><a class="dropdown-item" href="/heavy#post">Heavy Equipment Rentals (Excavator)</a></li>
@@ -102,9 +103,8 @@
         <div class="row">
         <div class="col text-center">
           <h4>PT Mateng Sari Makmur</h4>
-          <h5>Alamat</h5>
           <div class="row text-start">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ad nihil qui. Saepe aliquam ex blanditiis expedita quos, voluptatem tempora!</p>
+            <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.867243217982!2d105.29544981446234!3d-5.437124696056791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40dba784d3a693%3A0xb6a2c972c1ffcdb3!2sPT.%20Mateng%20Sari%20Makmur!5e0!3m2!1sen!2sid!4v1652169764221!5m2!1sen!2sid" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
           </div>
         </div>
         <div class="col text-center">
@@ -112,7 +112,7 @@
           <div class="row">
             <ul class="list-group list-group-flush" >
               <li class="list-group-item text-white warnaMerah"><a>Steel Construction</a></li>
-              <li class="list-group-item text-white warnaMerah"><a>Civil Worus</a></li>
+              <li class="list-group-item text-white warnaMerah"><a>Civil Works</a></li>
               <li class="list-group-item text-white warnaMerah"><a>Tanks</a></li>
               <li class="list-group-item text-white warnaMerah"><a>Screw Conveyor</a></li>
               <li class="list-group-item text-white warnaMerah"><a>Heavy Equipment Rentals (Excavator)</a></li>
@@ -125,31 +125,33 @@
             <div class="col-5">
               <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
             </div>
-            <div class="col-1"><p>072198989xxx</p></div>
+            <div class="col-1"><p>{{ $post->nohp }}</p></div>
           </div>
           <div class="row text-end">
             <div class="col-5">
               <i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
             </div>
-            <div class="col-1"><p>08129638xxx</p></div>
+            <div class="col-1"><p>{{ $post->whatsapp }}</p></div>
           </div>
           <div class="row text-end">
             <div class="col-5">
               <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
             </div>
-            <div class="col-1"><p>admin@matengsarimakmur.com</p></div>
+            <div class="col-1"><p>{{ $post->email }}</p></div>
           </div>
           <div class="row text-end">
             <div class="col-5">
               <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
             </div>
-            <div class="col-1"><p>@MSN.kontraktor</p></div>
+            <div class="col-1"><p>{{ $post->instagram }}</p></div>
           </div>
         </div>
       </div>
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+  @endforeach
   </body>
 
 

@@ -61,8 +61,7 @@
 
           <div class="mb-3">
             <label for="body" class="form-label  @error('body') is-invalid @enderror">Body</label>
-            <input id="body" type="hidden" name="body" required value="{{ old('body', $post->body) }}">
-            <trix-editor input="body"></trix-editor>
+            <textarea id="summernote" name="body">{{ old('body', $post->body) }}</textarea>
             @error('body')
             <div class="invalid-feedback">
               {{ $message }}
@@ -84,9 +83,9 @@
         .then(data => slug.value = data.slug)
     });
 
-    document.addEventListener('trix-file-accept', function(e){
-        e.preventDefault();
-    })
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
 </script>
 
 @endsection

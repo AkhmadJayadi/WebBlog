@@ -46,8 +46,7 @@
 
           <div class="mb-3">
             <label for="body" class="form-label  @error('body') is-invalid @enderror">Body</label>
-            <input id="body" type="hidden" name="body" required value="{{ old('body') }}">
-            <trix-editor input="body"></trix-editor>
+            <textarea id="summernote" name="body">{{ old('body') }}</textarea>
             @error('body')
             <div class="invalid-feedback">
               {{ $message }}
@@ -59,7 +58,6 @@
       </form>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');
@@ -70,9 +68,9 @@
         .then(data => slug.value = data.slug)
     });
 
-    document.addEventListener('trix-file-accept', function(e){
-        e.preventDefault();
-    })
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
 
     $(function() {
         // Multiple images preview with JavaScript

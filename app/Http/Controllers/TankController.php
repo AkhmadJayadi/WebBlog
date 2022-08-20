@@ -4,22 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Tank;
+use App\Models\footer;
 
 class TankController extends Controller
 {
     public function index()
     {
-        return view('tanks',[
-            "title" => "tanks",
-            "posts" => Tank::all()
-        ]);
+        $data = [
+            "title" => "Tank",
+            "posts" => Tank::all(),
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('tanks', $data);
     }
 
     public function show(Tank $tank)
     {
-        return view('tanks-posts',[
+        $data = [
             "title" => "Single Post",
-            "post" => $tank
-        ]);
+            "post" => $tank,
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('tanks-posts', $data);
     }
 }

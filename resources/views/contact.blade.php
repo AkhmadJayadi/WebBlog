@@ -3,6 +3,7 @@
 @section('container')
 
 <section>
+
     <div class="container">
         <div class="row">
         <div class="col text-center">
@@ -18,39 +19,66 @@
         </div>
 
         <div class="col text-center">
-                        <h4>Contact Us</h4>
-                        <p>Have any question or feedback?</p>
-        
-                        @if(Session::has('status'))
-                        <div class="alert alert-success">{{ Session::get('status') }}</div>
-                        @endif
-        
-                        <form action="" method="post">
-        
-                            {{ csrf_field() }}
-        
-                            <label for="name">Name</label>
-                            <input class="form-control" type="text" name="name" placeholder="you name" />
-                            
-                            <label for="email">Email</label>
-                            <input class="form-control" type="email" name="email" placeholder="you email address" />
-                            
-                            <label for="message">Message</label>
-                            <textarea class="form-control" name="message" id="" placeholder="your message" cols="30" rows="10"></textarea>
-        
-                            <br><br>
-        
-                            <button class="btn btn-success btn-block">Send</button>
-                        <form>
+            <h4>Contact Us</h4>
+            <p>Have any question or feedback?</p>
+
+                <div id="myDIV">
+                  @if(Session::has('status'))
+                  <div class="alert alert-success">{{ Session::get('status') }}</div>
+                  @endif
+      
+                  {{-- <form method="post" action="/kirimwa"> --}}
+                    <form method="post" action="/contact" id="satu">
+      
+                        {{ csrf_field() }}
+      
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" name="name" placeholder="you name" />
+                        
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" name="email" placeholder="you email address" />
+                      
+                        <label for="message">Message</label>
+                        <textarea class="form-control" name="message" id="" placeholder="your message" cols="30" rows="10"></textarea>
+
+                        <br>
+
+                        <button class="btn btn-success btn-block" onclick="myFunctionEmail()">Send Email</button>
+                        <button class="btn btn-success btn-block" onclick="myFunctionWA()">Send WA</button>
+      
+                    <form>
+                </div>
+
+                
+
+
+            
                     
                 
             
           
         </div>
+
+        {{-- <button onclick="myFunction()">Try it</button> --}}
+        
+
+
+
       </div>
       </div>
 
+      <script>
+        function myFunctionEmail() {
+          document.getElementById("satu").setAttribute("action", "contact");
+        }
+        function myFunctionWA() {
+          document.getElementById("satu").setAttribute("action", "kirimwa");
+        }
+        </script>
+
 </section>
+
+
 
 
 

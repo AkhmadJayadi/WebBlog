@@ -6,11 +6,21 @@
     @foreach ($posts as $post)
     <article class="mb-1">
                 <div class="col-mb-1">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ $post->title }}</h5>
-                      <p class="card-text">{{ $post->excert }}</p>
-                      <a href="/civil/{{ $post->slug }}#post" class="btn warnaMerah">Read More</a>
+                  <div class="card border-warning">
+                    <div class="row g-0">
+                      <div class="col-md-3">
+                        @foreach (explode(';',$post->image) as $row)
+                          <img src="{{ asset('images') . '/' . $row }}" class="card-img" alt="...">
+                          @break
+                        @endforeach
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ $post->title }}</h5>
+                          <p class="card-text">{{ $post->excert }}</p>
+                          <a href="/civil/{{ $post->slug }}#post" class="btn warnaMerah">Read More</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

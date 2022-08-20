@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\footer;
-use App\Http\Requests\StorefooterRequest;
-use App\Http\Requests\UpdatefooterRequest;
+use Illuminate\Http\Request;
 
 class FooterController extends Controller
 {
@@ -15,7 +14,9 @@ class FooterController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.footer.index',[
+            'posts' => Footer::all()
+        ]);
     }
 
     /**
@@ -34,7 +35,7 @@ class FooterController extends Controller
      * @param  \App\Http\Requests\StorefooterRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorefooterRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -58,7 +59,11 @@ class FooterController extends Controller
      */
     public function edit(footer $footer)
     {
-        //
+        $results = footer::all();
+
+        return view('dashboard.footer.edit', [
+            'post' => $results
+        ]);
     }
 
     /**
@@ -68,9 +73,24 @@ class FooterController extends Controller
      * @param  \App\Models\footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatefooterRequest $request, footer $footer)
+    public function update(Request $request, footer $footer)
     {
-        //
+        //dd($request);
+        $siap = '';
+
+        $rules = [
+            'nohp' => 'required',
+            'whatsapp' => 'required',
+            'email' => 'required',
+            'instagram' => 'required'
+        ];
+
+        $validateData = $request->validate($rules);
+
+        footer::where('id', '1')
+            ->update($validateData);
+
+        return redirect('/dashboard/footer')->with('success', 'New post has been updated!');
     }
 
     /**

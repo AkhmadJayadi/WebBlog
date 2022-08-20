@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Civill;
+use App\Models\footer;
 use Illuminate\Http\Request;
 
 class CivillController extends Controller
@@ -14,10 +15,13 @@ class CivillController extends Controller
      */
     public function index()
     {
-        return view('civil',[
+        $data = [
             "title" => "civil",
-            "posts" => Civill::all()
-        ]);
+            "posts" => Civill::all(),
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('civil', $data);
     }
 
     /**
@@ -49,11 +53,13 @@ class CivillController extends Controller
      */
     public function show(Civill $civill)
     {
-        //dd($slug);
-        return view('civil-posts',[
+        $data = [
             "title" => "Single Post",
-            "post" => $civill
-        ]);
+            "post" => $civill,
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('civil-posts', $data);
     }
 
     /**

@@ -13,14 +13,14 @@
         @csrf
 
         <div class="col-md-12 mt-2">
-          <label>Image1 Lama</label>
+          <label style="display: none;">Image1 Lama</label>
             @if ($post->image1)
-              <img src="{{ asset('images') . '/' . $post->image1 }}" class="card-img" alt="..."> 
+              <img src="{{ asset('images') . '/' . $post->image1 }}" style="display: none;" class="card-img" alt="..."> 
             @endif
         </div>
         <div class="form-group row">
-          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
-          <input type="file" name="image1" multiple class="form-control" id="images1">
+          <label for="name" style="display: none;"class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+          <input type="file" style="display: none;" name="image1" multiple class="form-control" id="images1">
             @if ($errors->has('images1'))
               @foreach ($errors->get('images1') as $error)
               <span class="invalid-feedback" role="alert">
@@ -34,14 +34,14 @@
         </div>
 
         <div class="col-md-12 mt-2">
-          <label>Image2 Lama</label>
+          <label style="display: none;">Image2 Lama</label>
             @if ($post->image2)
-              <img src="{{ asset('images') . '/' . $post->image2 }}" class="card-img" alt="..."> 
+              <img src="{{ asset('images') . '/' . $post->image2 }}" style="display: none;" class="card-img" alt="..."> 
             @endif
         </div>
         <div class="form-group row">
-          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
-          <input type="file" name="image2" multiple class="form-control" id="images2">
+          <label for="name" style="display: none;" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+          <input type="file" style="display: none;" name="image2" multiple class="form-control" id="images2">
             @if ($errors->has('images2'))
               @foreach ($errors->get('images2') as $error)
               <span class="invalid-feedback" role="alert">
@@ -55,14 +55,14 @@
         </div>
 
         <div class="col-md-12 mt-2">
-          <label>Image3 Lama</label>
+          <label style="display: none;">Image3 Lama</label>
             @if ($post->image3)
-              <img src="{{ asset('images') . '/' . $post->image3 }}" class="card-img" alt="..."> 
+              <img src="{{ asset('images') . '/' . $post->image3 }}" style="display: none;" class="card-img" alt="..."> 
             @endif
         </div>
         <div class="form-group row">
-          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
-          <input type="file" name="image3" multiple class="form-control" id="images3">
+          <label style="display: none;" for="name" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+          <input type="file" style="display: none;" name="image3" multiple class="form-control" id="images3">
             @if ($errors->has('images3'))
               @foreach ($errors->get('images3') as $error)
               <span class="invalid-feedback" role="alert">
@@ -77,8 +77,8 @@
 
 
         <div class="mb-3">
-          <label for="labelimage1" class="form-label">Label Image 1</label>
-          <input type="text" class="form-control  @error('labelimage1') is-invalid @enderror" id="labelimage1" name="labelimage1" required autofocus value="{{ old('labelimage1', $post->labelimage1) }}">
+          <label style="display: none;" for="labelimage1" class="form-label">Label Image 1</label>
+          <input style="display: none;" type="text" class="form-control  @error('labelimage1') is-invalid @enderror" id="labelimage1" name="labelimage1" required autofocus value="{{ old('labelimage1', $post->labelimage1) }}">
           @error('labelimage1')
             <div class="invalid-feedback">
               {{ $message }}
@@ -87,8 +87,8 @@
         </div>
 
         <div class="mb-3">
-          <label for="labelimage2" class="form-label">Label Image 2</label>
-          <input type="text" class="form-control  @error('labelimage2') is-invalid @enderror" id="labelimage2" name="labelimage2" required autofocus value="{{ old('labelimage2', $post->labelimage2) }}">
+          <label style="display: none;" for="labelimage2" class="form-label">Label Image 2</label>
+          <input style="display: none;" type="text" class="form-control  @error('labelimage2') is-invalid @enderror" id="labelimage2" name="labelimage2" required autofocus value="{{ old('labelimage2', $post->labelimage2) }}">
           @error('labelimage2')
             <div class="invalid-feedback">
               {{ $message }}
@@ -97,8 +97,8 @@
         </div>
 
         <div class="mb-3">
-          <label for="labelimage3" class="form-label">Label Image 3</label>
-          <input type="text" class="form-control  @error('labelimage3') is-invalid @enderror" id="labelimage3" name="labelimage3" required autofocus value="{{ old('labelimage3', $post->labelimage3) }}">
+          <label style="display: none;" for="labelimage3" class="form-label">Label Image 3</label>
+          <input style="display: none;" type="text" class="form-control  @error('labelimage3') is-invalid @enderror" id="labelimage3" name="labelimage3" required autofocus value="{{ old('labelimage3', $post->labelimage3) }}">
           @error('labelimage3')
             <div class="invalid-feedback">
               {{ $message }}

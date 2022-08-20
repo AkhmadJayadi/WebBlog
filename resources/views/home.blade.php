@@ -12,7 +12,7 @@
           </div>
           <div class="col-lg-8 align-self-baseline">
               <p class="text-white-75 mb-5">{!! Str::limit(str_replace(['<div>','</div>'], ' ', $post->tentangkami), 400) !!}</p>
-              <a class="btn warnaMerah btn-xl" href="#about">Find Out More</a>
+              <a class="btn warnaMerah btn-xl" href="#about">Find Out More</a> <!--dari primary ke danger-->
           </div>
       </div>
   </div>
@@ -21,33 +21,23 @@
 <section id="ppp">
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        @foreach($Slider as $key => $slider)
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $key }}" class="{{$key == 0 ? 'active' : '' }}" aria-current="true"></button>
+        @endforeach
       </div>
+      
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img width="2000" height="500" src="{{ asset('images/' . $post->image1) }}" class="d-block w-100" alt="...">
+        @foreach($Slider as $key => $slider)
+        <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
+          <img width="2000" height="500" src="{{ asset('images/' . $slider->gambar) }}" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>{{ $post->labelimage1 }}</h5>
-            <p>{{ $post->ketimage1 }}</p>
+            <h5>{{ $slider->label }}</h5>
+            <p>{{ $slider->keterangan }}</p>
           </div>
         </div>
-        <div class="carousel-item">
-          <img width="2000" height="500" src="{{ asset('images/' . $post->image2) }}" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>{{ $post->labelimage2 }}</h5>
-            <p>{{ $post->ketimage2 }}</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img width="2000" height="500" src="{{ asset('images/' . $post->image3) }}" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>{{ $post->labelimage3 }}</h5>
-            <p>{{ $post->ketimage3 }}</p>
-          </div>
-        </div>
+        @endforeach
       </div>
+      
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -67,11 +57,11 @@
               <h2 class="text-white mt-0">VISI</h2>
               <hr class="divider divider-light" />
               
-              <p class="text-white-75 mb-4">{!! str_replace(['<div>','</div>'], ' ', $post->visi) !!}</p>
-
+              <!--- <p class="text-white-75 mb-4">{!! str_replace(['<div>','</div>'], ' ', $post->visi) !!}</p> --->
+              <p class="text-white-75 mb-4">{!!  $post->visi !!}</p>
               <h2 class="text-white mt-0">MISI</h2>
               <hr class="divider divider-light" />
-              <p class="text-white-75 mb-4">{!! str_replace(['<div>','</div>'], ' ', $post->misi) !!}</p>
+              <p class="text-white-75 mb-4">{!! $post->misi !!}</p>
               <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
           </div>
       </div>

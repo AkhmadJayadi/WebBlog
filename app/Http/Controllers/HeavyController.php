@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Heavy;
+use App\Models\footer;
 use Illuminate\Http\Request;
 
 class HeavyController extends Controller
@@ -14,10 +15,13 @@ class HeavyController extends Controller
      */
     public function index()
     {
-        return view('heavy',[
-            "title" => "screw",
-            "posts" => Heavy::all()
-        ]);
+        $data = [
+            "title" => "Heavy",
+            "posts" => Heavy::all(),
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('heavy', $data);
     }
 
     /**
@@ -49,11 +53,13 @@ class HeavyController extends Controller
      */
     public function show(Heavy $heavy)
     {
-        //dd($slug);
-        return view('heavy-posts',[
+        $data = [
             "title" => "Single Post",
-            "post" => $heavy
-        ]);
+            "post" => $heavy,
+            "postFooter" => footer::all()
+        ];
+        //dd($data);
+        return view('heavy-posts', $data);
     }
 
     /**
